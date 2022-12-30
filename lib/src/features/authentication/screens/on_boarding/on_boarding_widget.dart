@@ -13,6 +13,7 @@ class OnBoardingPageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.all(defaultSize),
       color: model.bgColor,
@@ -21,7 +22,7 @@ class OnBoardingPageWidget extends StatelessWidget {
         children: [
           Image(
             image: AssetImage(model.image),
-            height: model.height * 0.4,
+            height: size.height * 0.4,
           ),
           Column(
             children: [
