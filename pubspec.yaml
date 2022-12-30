@@ -38,6 +38,8 @@ dependencies:
   lottie:
   google_fonts: ^3.0.1
   get: ^4.6.5
+  liquid_swipe:
+  smooth_page_indicator:
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +65,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/onboarding/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

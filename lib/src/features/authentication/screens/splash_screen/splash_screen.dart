@@ -1,56 +1,51 @@
 import 'package:crud_api/src/constants/text_string.dart';
 import 'package:crud_api/widget/option_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../../constants/image_string.dart';
+import '../../controllers/splash_screen_controller.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
-
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  bool animate = false;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    startAnimation();
-  }
+class SplashScreen extends StatelessWidget {
+  SplashScreen({super.key});
+  final splashController = Get.put(SplashScreenController());
 
   @override
   Widget build(BuildContext context) {
+    splashController.startAnimation();
     return Scaffold(
       body: SafeArea(
         child: Stack(
           children: [
-            AnimatedPositioned(
-              duration: Duration(milliseconds: 1600),
-              top: animate ? 0 : -30,
-              left: animate ? 0 : -30,
-              child: Image(
-                image: AssetImage(
-                  splashTopIcon,
-                ),
-              ),
-              height: 150,
-              width: 150,
-            ),
-            AnimatedPositioned(
-              duration: Duration(milliseconds: 1600),
-              top: 50,
-              right: animate ? 40 : -80,
-              child: AnimatedOpacity(
+            Obx(
+              () => AnimatedPositioned(
                 duration: Duration(milliseconds: 1600),
-                opacity: animate ? 1 : 0,
-                child: Column(
-                  children: [
-                    Text(appName),
-                    Text(appTagLine),
-                  ],
+                top: splashController.animate.value ? 0 : -30,
+                left: splashController.animate.value ? 0 : -30,
+                child: Image(
+                  image: AssetImage(
+                    splashTopIcon,
+                  ),
+                ),
+                height: 150,
+                width: 150,
+              ),
+            ),
+            Obx(
+              () => AnimatedPositioned(
+                duration: Duration(milliseconds: 1600),
+                top: 50,
+                right: splashController.animate.value ? 40 : -80,
+                child: AnimatedOpacity(
+                  duration: Duration(milliseconds: 1600),
+                  opacity: splashController.animate.value ? 1 : 0,
+                  child: Column(
+                    children: [
+                      Text(appName),
+                      Text(appTagLine),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -63,16 +58,18 @@ class _SplashScreenState extends State<SplashScreen> {
                 width: 300,
               ),
             ),
-            AnimatedPositioned(
-              duration: Duration(milliseconds: 1600),
-              bottom: animate ? 0 : -50,
-              right: animate ? 0 : -50,
-              child: Image(
-                image: AssetImage(
-                  splashbottomIcon,
+            Obx(
+              () => AnimatedPositioned(
+                duration: Duration(milliseconds: 1600),
+                bottom: splashController.animate.value ? 0 : -50,
+                right: splashController.animate.value ? 0 : -50,
+                child: Image(
+                  image: AssetImage(
+                    splashbottomIcon,
+                  ),
+                  height: 200,
+                  width: 200,
                 ),
-                height: 200,
-                width: 200,
               ),
             ),
             Positioned(
@@ -109,15 +106,5 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
       ),
     );
-  }
-
-  Future startAnimation() async {
-    await Future.delayed(Duration(milliseconds: 2000));
-    setState(() {
-      animate = true;
-    });
-    await Future.delayed(Duration(milliseconds: 20000));
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => OptionPage()));
   }
 }
