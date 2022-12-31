@@ -1,6 +1,7 @@
 //splash screen text
 const String appName = "TODO/";
 const String appTagLine = "Learn TO Code. \n Free For Everyone";
+
 //onboarding screen text
 const String onBoardingTitle1 = "Build Awesome Apps";
 const String onBoardingTitle2 = "Learn From YouTube";
@@ -14,3 +15,17 @@ const String onBoardingSubTitle3 =
 const String onBoardingCounter1 = "1/3";
 const String onBoardingCounter2 = "2/3";
 const String onBoardingCounter3 = "3/3";
+
+//welcome screen text
+
+const String welcomeTitle = "Build Awesome Apps";
+const String welcomeSubTitle =
+    "Let's put your creativity on the development highway. craft apps that everyone love.";
+const String loginText = "Login";
+const String signUpText = "Signup";
+
+//login screen text
+const String loginTitle = "welcome Back";
+const String loginSubTitle = "Make it work, make it right, make it fast.";
+const String rememberMe = "Remember Me?";
+const String alreadyHaveAnAccount = "Already have an Account?";

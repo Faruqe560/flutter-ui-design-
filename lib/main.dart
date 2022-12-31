@@ -1,5 +1,6 @@
 import 'package:crud_api/src/features/authentication/screens/on_boarding/on_boarding_screen.dart';
 import 'package:crud_api/src/features/authentication/screens/splash_screen/splash_screen.dart';
+import 'package:crud_api/src/features/authentication/screens/welcomepage/welcome_screen.dart';
 import 'package:crud_api/src/utils/theme/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
